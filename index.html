@@ -7,222 +7,30 @@
   <meta name="theme-color" content="#fff8f4">
   <title>Wuff &amp; Wild – Alles über Dobermänner</title>
   <style>
-    :root {
-      --ink: #29213a;
-      --muted: #71677f;
-      --paper: #fff9f5;
-      --white: #fff;
-      --pink: #ff5f8f;
-      --orange: #ff9a45;
-      --purple: #7657e8;
-      --line: #f0e2e8;
-      --sunset: linear-gradient(100deg, #ff9a45, #ff5f8f 52%, #7657e8);
-      --shadow: 0 16px 45px rgba(67, 39, 73, .10);
-      --radius: 24px;
-      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-    }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; scroll-padding-top: 85px; }
-    body { margin: 0; color: var(--ink); background: var(--paper); line-height: 1.65; }
-    a { color: inherit; }
-    img { display: block; max-width: 100%; }
-    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
-    header { position: sticky; top: 0; z-index: 10; background: rgba(255,249,245,.94); border-bottom: 1px solid var(--line); backdrop-filter: blur(14px); }
-    .nav { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-    .brand { color: var(--ink); font-size: 1.25rem; font-weight: 950; letter-spacing: -.06em; text-decoration: none; }
-    .brand span { color: var(--pink); }
-    nav { display: flex; flex-wrap: wrap; gap: 10px 20px; }
-    nav a { color: var(--muted); font-size: .92rem; font-weight: 750; text-decoration: none; }
-    nav a:hover, nav a:focus-visible { color: var(--pink); }
-    .hero { padding: 76px 0 70px; background: radial-gradient(circle at 82% 10%, #ffe1cc 0, transparent 26%), radial-gradient(circle at 5% 90%, #f6ddff 0, transparent 30%), #fff7f2; }
-    .hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 42px; }
-    .eyebrow { color: var(--pink); font-size: .78rem; font-weight: 900; letter-spacing: .13em; text-transform: uppercase; }
-    h1, h2 { background: var(--sunset); background-clip: text; -webkit-background-clip: text; color: transparent; }
-    h1 { max-width: 680px; margin: 12px 0 18px; font-size: clamp(3rem, 7vw, 5.6rem); line-height: .98; letter-spacing: -.075em; }
-    h1 .dark { color: var(--ink); background: none; -webkit-text-fill-color: var(--ink); }
-    .lead { max-width: 600px; color: var(--muted); font-size: 1.12rem; }
-    .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 24px; }
-    .button { display: inline-flex; padding: 13px 20px; border-radius: 999px; background: var(--sunset); color: white; font-weight: 800; text-decoration: none; box-shadow: 0 9px 22px rgba(255,95,143,.25); }
-    .button:hover { transform: translateY(-2px); }
-    .text-link { color: var(--muted); font-weight: 750; text-decoration: underline; text-underline-offset: 4px; }
-    .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; align-items: start; }
-    .photo-card { margin: 0; padding: 10px; border-radius: 24px; background: var(--white); box-shadow: var(--shadow); }
-    .photo-card:nth-child(2) { margin-top: 26px; }
-    .photo-frame { position: relative; overflow: hidden; min-height: 300px; border-radius: 17px; background: linear-gradient(145deg, #f8d3dd, #f7e9d8 55%, #ddd3ff); }
-    .photo-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
-    .photo-fallback { min-height: 300px; display: grid; place-items: center; padding: 20px; color: #65536f; text-align: center; font-weight: 750; }
-    .photo-card figcaption { padding: 10px 4px 2px; text-align: center; font-size: .9rem; font-weight: 800; }
-    section { padding: 72px 0; }
-    .section-heading { max-width: 720px; margin-bottom: 28px; }
-    h2 { margin: 7px 0 10px; font-size: clamp(2rem,4vw,3.1rem); line-height: 1.08; letter-spacing: -.055em; }
-    .section-heading p { margin: 0; color: var(--muted); }
-    .cards, .training-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
-    .card, .training-item { padding: 24px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--white); box-shadow: 0 8px 24px rgba(67,39,73,.045); }
-    .card h3, .training-item h3 { margin: 10px 0 8px; font-size: 1.2rem; }
-    .card p, .training-item p { margin: 0; color: var(--muted); }
-    .icon { display: grid; width: 52px; height: 52px; place-items: center; border-radius: 17px; background: #fff0f5; font-size: 1.65rem; }
-    .card:nth-child(2) .icon, .training-item:nth-child(2) .icon { background: #fff2df; }
-    .card:nth-child(3) .icon, .training-item:nth-child(3) .icon { background: #f1eaff; }
-    .daily { background: #fff2f7; }
-    .daily-layout { display: grid; grid-template-columns: .9fr 1.1fr; align-items: center; gap: 36px; }
-    .daily-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 22px; }
-    .daily-gallery img { width: 100%; height: 190px; object-fit: cover; border-radius: 18px; background: #f2eaf0; }
-    .daily-list { display: grid; gap: 13px; }
-    .daily-item { display: grid; grid-template-columns: 48px 1fr; gap: 14px; padding: 16px; border: 1px solid rgba(217,63,141,.12); border-radius: 18px; background: rgba(255,255,255,.86); }
-    .daily-item .emoji { font-size: 1.55rem; }
-    .daily-item h3 { margin: 0 0 3px; font-size: 1.05rem; }
-    .daily-item p { margin: 0; color: var(--muted); font-size: .94rem; }
-    .tag { display: inline-block; margin-bottom: 8px; color: var(--pink); font-size: .75rem; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; }
-    .faq { background: #fff7fb; }
-    .faq-list { display: grid; gap: 12px; }
-    .faq-item { padding: 18px 20px; border: 1px solid var(--line); border-radius: 18px; background: white; }
-    .faq-item h3 { margin: 0 0 7px; font-size: 1.05rem; }
-    .faq-item p { margin: 0; color: var(--muted); }
-    .tip { display: grid; grid-template-columns: auto 1fr; gap: 17px; align-items: start; padding: 25px; border: 1px solid #f4dfbb; border-radius: var(--radius); background: linear-gradient(120deg,#fff4d9,#fff); }
-    .tip .emoji { font-size: 2rem; }
-    .tip h3 { margin: 0 0 5px; }
-    .tip p { margin: 0; color: var(--muted); }
-    .responsibility { color: white; background: linear-gradient(120deg,#ff8b52,#f25492 58%,#7657e8); }
-    .responsibility h2 { color: white; background: none; -webkit-text-fill-color: white; }
-    .responsibility .section-heading p { color: rgba(255,255,255,.9); }
-    .responsibility-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-    .responsibility-card { padding: 23px; border: 1px solid rgba(255,255,255,.35); border-radius: 20px; background: rgba(255,255,255,.12); }
-    .responsibility-card h3 { margin: 0 0 7px; }
-    .responsibility-card p { margin: 0; color: rgba(255,255,255,.9); }
-    footer { padding: 25px 0; color: var(--muted); font-size: .9rem; }
-    .footer-row { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
-    @media (max-width: 760px) {
-      .nav { align-items: flex-start; flex-direction: column; padding: 13px 0; }
-      .hero { padding: 52px 0; }
-      .hero-grid, .daily-layout, .cards, .training-grid, .responsibility-grid { grid-template-columns: 1fr; }
-      .photo-frame, .photo-fallback { min-height: 250px; }
-      .photo-card:nth-child(2) { margin-top: 0; }
-      .daily-gallery img { height: 160px; }
-      section { padding: 55px 0; }
-    }
-    @media (max-width: 430px) { .wrap { width: min(100% - 28px, 1120px); } .gallery { gap: 9px; } .photo-card { padding: 7px; } .photo-frame, .photo-fallback { min-height: 190px; } }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
+    :root{--ink:#29213a;--muted:#71677f;--paper:#fff9f5;--pink:#ff5f8f;--orange:#ff9a45;--purple:#7657e8;--line:#f0e2e8;--sunset:linear-gradient(100deg,#ff9a45,#ff5f8f 52%,#7657e8);--shadow:0 16px 45px rgba(67,39,73,.1);font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+    *{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:85px}body{margin:0;color:var(--ink);background:var(--paper);line-height:1.65}img{display:block;max-width:100%}.wrap{width:min(1120px,calc(100% - 40px));margin:auto}
+    header{position:sticky;top:0;z-index:10;background:rgba(255,249,245,.94);border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}.nav{min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{color:var(--ink);font-size:1.25rem;font-weight:950;letter-spacing:-.06em;text-decoration:none}.brand span{color:var(--pink)}nav{display:flex;flex-wrap:wrap;gap:10px 20px}nav a{color:var(--muted);font-size:.92rem;font-weight:750;text-decoration:none}nav a:hover{color:var(--pink)}
+    .hero{padding:76px 0 70px;background:radial-gradient(circle at 82% 10%,#ffe1cc 0,transparent 26%),radial-gradient(circle at 5% 90%,#f6ddff 0,transparent 30%),#fff7f2}.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:42px}.eyebrow{color:var(--pink);font-size:.78rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase}h1,h2{background:var(--sunset);background-clip:text;-webkit-background-clip:text;color:transparent}h1{max-width:680px;margin:12px 0 18px;font-size:clamp(3rem,7vw,5.6rem);line-height:.98;letter-spacing:-.075em}h1 .dark{color:var(--ink);background:none;-webkit-text-fill-color:var(--ink)}.lead{max-width:600px;color:var(--muted);font-size:1.12rem}.actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:24px}.button{display:inline-flex;padding:13px 20px;border-radius:999px;background:var(--sunset);color:white;font-weight:800;text-decoration:none;box-shadow:0 9px 22px rgba(255,95,143,.25)}.text-link{color:var(--muted);font-weight:750;text-decoration:underline;text-underline-offset:4px}
+    .gallery{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}.photo-card{margin:0;padding:10px;border-radius:24px;background:white;box-shadow:var(--shadow)}.photo-card:nth-child(2){margin-top:26px}.photo-card img{width:100%;height:320px;object-fit:cover;border-radius:17px;background:#f2eaf0}.photo-card figcaption{padding:10px 4px 2px;text-align:center;font-size:.9rem;font-weight:800}
+    section{padding:72px 0}.section-heading{max-width:720px;margin-bottom:28px}h2{margin:7px 0 10px;font-size:clamp(2rem,4vw,3.1rem);line-height:1.08;letter-spacing:-.055em}.section-heading p{margin:0;color:var(--muted)}.cards,.training-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card,.training-item{padding:24px;border:1px solid var(--line);border-radius:24px;background:white;box-shadow:0 8px 24px rgba(67,39,73,.045)}.card h3,.training-item h3{margin:10px 0 8px;font-size:1.2rem}.card p,.training-item p{margin:0;color:var(--muted)}.icon{display:grid;width:52px;height:52px;place-items:center;border-radius:17px;background:#fff0f5;font-size:1.65rem}
+    .daily{background:#fff2f7}.daily-layout{display:grid;grid-template-columns:.9fr 1.1fr;align-items:center;gap:36px}.daily-photo{width:100%;height:320px;margin-top:22px;border-radius:22px;object-fit:cover;box-shadow:var(--shadow)}.daily-list{display:grid;gap:13px}.daily-item{display:grid;grid-template-columns:48px 1fr;gap:14px;padding:16px;border:1px solid rgba(217,63,141,.12);border-radius:18px;background:rgba(255,255,255,.86)}.daily-item .emoji{font-size:1.55rem}.daily-item h3{margin:0 0 3px;font-size:1.05rem}.daily-item p{margin:0;color:var(--muted);font-size:.94rem}
+    .tag{display:inline-block;margin-bottom:8px;color:var(--pink);font-size:.75rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase}.faq{background:#fff7fb}.faq-list{display:grid;gap:12px}.faq-item{padding:18px 20px;border:1px solid var(--line);border-radius:18px;background:white}.faq-item h3{margin:0 0 7px;font-size:1.05rem}.faq-item p{margin:0;color:var(--muted)}.tip{display:grid;grid-template-columns:auto 1fr;gap:17px;padding:25px;border:1px solid #f4dfbb;border-radius:24px;background:linear-gradient(120deg,#fff4d9,#fff)}.tip .emoji{font-size:2rem}.tip h3{margin:0 0 5px}.tip p{margin:0;color:var(--muted)}
+    .responsibility{color:white;background:linear-gradient(120deg,#ff8b52,#f25492 58%,#7657e8)}.responsibility h2{color:white;background:none;-webkit-text-fill-color:white}.responsibility .section-heading p{color:rgba(255,255,255,.9)}.responsibility-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.responsibility-card{padding:23px;border:1px solid rgba(255,255,255,.35);border-radius:20px;background:rgba(255,255,255,.12)}.responsibility-card h3{margin:0 0 7px}.responsibility-card p{margin:0;color:rgba(255,255,255,.9)}footer{padding:25px 0;color:var(--muted);font-size:.9rem}.footer-row{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    @media(max-width:760px){.nav{align-items:flex-start;flex-direction:column;padding:13px 0}.hero{padding:52px 0}.hero-grid,.daily-layout,.cards,.training-grid,.responsibility-grid{grid-template-columns:1fr}.photo-card:nth-child(2){margin-top:0}section{padding:55px 0}.daily-photo{height:260px}}@media(max-width:430px){.wrap{width:calc(100% - 28px)}.gallery{gap:9px}.photo-card{padding:7px}.photo-card img{height:210px}}
   </style>
 </head>
 <body>
-  <header>
-    <div class="wrap nav">
-      <a class="brand" href="#start" aria-label="Wuff & Wild – Startseite">Wuff <span>&amp; Wild</span></a>
-      <nav aria-label="Hauptnavigation">
-        <a href="#fakten">Fakten</a>
-        <a href="#alltag">Im Alltag</a>
-        <a href="#training">Training</a>
-        <a href="#pflege">Pflege</a>
-        <a href="#faq">FAQ</a>
-      </nav>
-    </div>
-  </header>
-
+  <header><div class="wrap nav"><a class="brand" href="#start">Wuff <span>&amp; Wild</span></a><nav aria-label="Hauptnavigation"><a href="#fakten">Fakten</a><a href="#alltag">Im Alltag</a><a href="#training">Training</a><a href="#pflege">Pflege</a><a href="#faq">FAQ</a></nav></div></header>
   <main>
-    <section class="hero" id="start">
-      <div class="wrap hero-grid">
-        <div>
-          <div class="eyebrow">Stark, intelligent, loyal 🐾</div>
-          <h1><span class="dark">Der Dobermann</span><br>ist ein Powerpaket.</h1>
-          <p class="lead">Dobermänner sind aufmerksam, lernfreudig und aktiv. Sie brauchen liebevolle Erziehung, Bewegung und eine Familie, die langfristig für sie sorgt.</p>
-          <div class="actions"><a class="button" href="#alltag">Mehr entdecken →</a><a class="text-link" href="#faq">Häufige Fragen</a></div>
-        </div>
-        <div class="gallery" aria-label="Dobermann-Fotogalerie">
-          <figure class="photo-card">
-            <div class="photo-frame">
-              <img src="https://images.pexels.com/photos/7534550/pexels-photo-7534550.jpeg" alt="Dobermann im Porträt" loading="eager" onerror="this.hidden=true; this.nextElementSibling.hidden=false">
-              <div class="photo-fallback" hidden>🐕<br>Dobermann-Porträt</div>
-            </div>
-            <figcaption>Aufmerksam und neugierig</figcaption>
-          </figure>
-          <figure class="photo-card">
-            <div class="photo-frame">
-              <img src="https://cdn.pixabay.com/photo/2015/01/31/13/23/doberman-618779_1280.jpg" alt="Dobermann im Freien" loading="lazy" onerror="this.hidden=true; this.nextElementSibling.hidden=false">
-              <div class="photo-fallback" hidden>🐾<br>Dobermann im Freien</div>
-            </div>
-            <figcaption>Ein aktiver Begleiter</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <section id="fakten">
-      <div class="wrap">
-        <div class="section-heading"><div class="eyebrow">Kurz &amp; spannend</div><h2>Was Dobermänner besonders macht</h2><p>Jeder Hund hat seinen eigenen Charakter. Dobermänner gelten als aufmerksam und lernfreudig und brauchen passende Beschäftigung.</p></div>
-        <div class="cards">
-          <article class="card"><div class="icon" aria-hidden="true">🧠</div><h3>Intelligent</h3><p>Sie lernen gern und profitieren von ruhigem, geduldigem Training.</p></article>
-          <article class="card"><div class="icon" aria-hidden="true">💪</div><h3>Aktiv</h3><p>Bewegung und Denkaufgaben sollten zum Alter und zur Gesundheit des Hundes passen.</p></article>
-          <article class="card"><div class="icon" aria-hidden="true">🐾</div><h3>Individuell</h3><p>Jeder Dobermann ist anders. Lerne seine Körpersprache kennen und respektiere seine Grenzen.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="daily" id="alltag">
-      <div class="wrap daily-layout">
-        <div>
-          <div class="eyebrow">Gassi, spielen, entspannen</div><h2>Dobermänner im Alltag</h2>
-          <p class="lead">Ein guter Alltag bietet Bewegung, Beschäftigung, Ruhe und verlässliche Betreuung.</p>
-          <div class="daily-gallery" aria-label="Weitere Dobermann-Bilder">
-            <img src="https://images.pexels.com/photos/7534550/pexels-photo-7534550.jpeg" alt="Dobermann, Nahaufnahme" loading="lazy" onerror="this.hidden=true">
-            <img src="https://cdn.pixabay.com/photo/2015/01/31/13/23/doberman-618779_1280.jpg" alt="Dobermann draußen" loading="lazy" onerror="this.hidden=true">
-          </div>
-        </div>
-        <div class="daily-list">
-          <article class="daily-item"><div class="emoji" aria-hidden="true">🌤️</div><div><h3>Spaziergänge</h3><p>Gassi gehen gibt Gelegenheit, sich zu bewegen und die Umgebung zu erkunden.</p></div></article>
-          <article class="daily-item"><div class="emoji" aria-hidden="true">🧸</div><div><h3>Spielen und lernen</h3><p>Kurze Spiele und geduldiges Training sorgen für Abwechslung. Pausen gehören dazu.</p></div></article>
-          <article class="daily-item"><div class="emoji" aria-hidden="true">💤</div><div><h3>Ruhe</h3><p>Ein sicherer, ruhiger Platz hilft dem Hund, ungestört zu schlafen und sich zu erholen.</p></div></article>
-          <article class="daily-item"><div class="emoji" aria-hidden="true">🤝</div><div><h3>Respektvoller Kontakt</h3><p>Frag vor dem Streicheln die Besitzerin oder den Besitzer und lass dem Hund Raum.</p></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="training">
-      <div class="wrap">
-        <div class="section-heading"><div class="eyebrow">Sozialisation &amp; Training</div><h2>Wichtig für ein gutes Zusammenleben</h2><p>Ein Dobermann braucht klare und liebevolle Begleitung. Training sollte Sicherheit, Vertrauen und Freude fördern.</p></div>
-        <div class="training-grid">
-          <article class="training-item"><div class="icon" aria-hidden="true">🌍</div><h3>Die Welt kennenlernen</h3><p>Neue Menschen, Orte und Alltagssituationen sollten ruhig und passend zum Hund erlebt werden.</p></article>
-          <article class="training-item"><div class="icon" aria-hidden="true">🎯</div><h3>Klare Regeln</h3><p>Verständliche Signale und ein verlässlicher Tagesablauf helfen dem Hund, sich zu orientieren.</p></article>
-          <article class="training-item"><div class="icon" aria-hidden="true">❤️</div><h3>Mit Geduld üben</h3><p>Lob und Belohnungen fördern Motivation. Trainingseinheiten kurz halten und Pausen einplanen.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section id="pflege">
-      <div class="wrap">
-        <div class="section-heading"><div class="eyebrow">Pflege &amp; Gesundheit</div><h2>Was ein Hund zum Wohlfühlen braucht</h2><p>Die erwachsenen Bezugspersonen sorgen dafür, dass der Hund dauerhaft gut versorgt wird.</p></div>
-        <div class="cards">
-          <article class="card"><span class="tag">Gesundheit</span><h3>Tierärztliche Betreuung</h3><p>Vorsorge und tierärztliche Hilfe bei Krankheit oder Verletzungen sind wichtig.</p></article>
-          <article class="card"><span class="tag">Versorgung</span><h3>Futter und Wasser</h3><p>Der Futterbedarf hängt unter anderem von Alter, Gesundheit und Aktivität ab. Frisches Wasser sollte bereitstehen.</p></article>
-          <article class="card"><span class="tag">Wohlbefinden</span><h3>Fell und Ruheplatz</h3><p>Regelmäßige Pflege und ein bequemer, ruhiger Rückzugsort gehören zum Alltag.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="faq" id="faq">
-      <div class="wrap">
-        <div class="section-heading"><div class="eyebrow">Häufige Fragen</div><h2>Gut zu wissen</h2></div>
-        <div class="faq-list">
-          <article class="faq-item"><h3>Ist ein Dobermann automatisch aggressiv?</h3><p>Nein. Verhalten hängt von vielen Faktoren ab, darunter Erfahrungen, Gesundheit, Erziehung und Situation. Jeder Hund sollte als Individuum behandelt werden.</p></article>
-          <article class="faq-item"><h3>Wie viel Bewegung braucht ein Dobermann?</h3><p>Dobermänner sind meist aktive Hunde. Bewegung und Beschäftigung müssen zum einzelnen Hund, seinem Alter und seiner Gesundheit passen.</p></article>
-          <article class="faq-item"><h3>Ist ein Dobermann für Familien geeignet?</h3><p>Das hängt von Hund und Familie ab. Zeit, Erfahrung, verlässliche Betreuung und respektvoller Umgang sind wichtig.</p></article>
-          <article class="faq-item"><h3>Was sollte man bei Begegnungen beachten?</h3><p>Frage die Halterin oder den Halter, bevor du dich näherst oder den Hund streichelst. Bedränge den Hund nicht und respektiere seine Signale.</p></article>
-        </div>
-      </div>
-    </section>
-
-    <section><div class="wrap"><aside class="tip"><div class="emoji" aria-hidden="true">✨</div><div><h3>Körpersprache beachten</h3><p>Wenn ein Hund ausweicht, erstarrt oder angespannt wirkt, gib ihm Abstand. Bitte eine erwachsene Bezugsperson um Hilfe, wenn du unsicher bist.</p></div></aside></div></section>
-
-    <section class="responsibility" id="verantwortung">
-      <div class="wrap">
-        <div class="section-heading"><div class="eyebrow" style="color:#fff1d8">Ein Hund ist keine Kurzzeit-Entscheidung</div><h2>Verantwortung gehört dazu</h2><p>Ein Hund braucht viele Jahre lang Zeit, Betreuung und Fürsorge. Die Entscheidung für ein Haustier trifft die Familie gemeinsam.</p></div>
-        <div class="responsibility-grid">
-          <article class="responsibility-card"><h3>🏡 Zeit und Planung</h3><p>Spaziergänge, Pflege, Betreuung und Tierarztbesuche müssen dauerhaft in den Alltag passen.</p></article>
-          <article class="responsibility-card"><h3>💛 Respekt und Fürsorge</h3><p>Ein Hund ist ein fühlendes Lebewesen. Seine Bedürfnisse und Grenzen müssen ernst genommen werden.</p></article>
-        </div>
-      </div>
-    </section>
+    <section class="hero" id="start"><div class="wrap hero-grid"><div><div class="eyebrow">Stark, intelligent, loyal 🐾</div><h1><span class="dark">Der Dobermann</span><br>ist ein Powerpaket.</h1><p class="lead">Dobermänner sind aufmerksam, lernfreudig und aktiv. Sie brauchen liebevolle Erziehung, Bewegung und eine Familie, die langfristig für sie sorgt.</p><div class="actions"><a class="button" href="#alltag">Mehr entdecken →</a><a class="text-link" href="#faq">Häufige Fragen</a></div></div><div class="gallery" aria-label="Dobermann-Fotogalerie"><figure class="photo-card"><img src="images.jpg" alt="Dobermann – Foto aus diesem Repository" loading="eager"><figcaption>Dobermann-Porträt</figcaption></figure><figure class="photo-card"><img src="images.jpg" alt="Dobermann – Foto aus diesem Repository" loading="lazy"><figcaption>Ein treuer Begleiter</figcaption></figure></div></div></section>
+    <section id="fakten"><div class="wrap"><div class="section-heading"><div class="eyebrow">Kurz &amp; spannend</div><h2>Was Dobermänner besonders macht</h2><p>Jeder Hund hat seinen eigenen Charakter. Dobermänner gelten als aufmerksam und lernfreudig und brauchen passende Beschäftigung.</p></div><div class="cards"><article class="card"><div class="icon" aria-hidden="true">🧠</div><h3>Intelligent</h3><p>Sie lernen gern und profitieren von ruhigem, geduldigem Training.</p></article><article class="card"><div class="icon" aria-hidden="true">💪</div><h3>Aktiv</h3><p>Bewegung und Denkaufgaben sollten zum Alter und zur Gesundheit des Hundes passen.</p></article><article class="card"><div class="icon" aria-hidden="true">🐾</div><h3>Individuell</h3><p>Jeder Dobermann ist anders. Lerne seine Körpersprache kennen und respektiere seine Grenzen.</p></article></div></div></section>
+    <section class="daily" id="alltag"><div class="wrap daily-layout"><div><div class="eyebrow">Gassi, spielen, entspannen</div><h2>Dobermänner im Alltag</h2><p class="lead">Ein guter Alltag bietet Bewegung, Beschäftigung, Ruhe und verlässliche Betreuung.</p><img class="daily-photo" src="images.jpg" alt="Dobermann – Bild aus dem Repository" loading="lazy"></div><div class="daily-list"><article class="daily-item"><div class="emoji">🌤️</div><div><h3>Spaziergänge</h3><p>Gassi gehen gibt Gelegenheit, sich zu bewegen und die Umgebung zu erkunden.</p></div></article><article class="daily-item"><div class="emoji">🧸</div><div><h3>Spielen und lernen</h3><p>Kurze Spiele und geduldiges Training sorgen für Abwechslung. Pausen gehören dazu.</p></div></article><article class="daily-item"><div class="emoji">💤</div><div><h3>Ruhe</h3><p>Ein sicherer, ruhiger Platz hilft dem Hund, ungestört zu schlafen und sich zu erholen.</p></div></article><article class="daily-item"><div class="emoji">🤝</div><div><h3>Respektvoller Kontakt</h3><p>Frag vor dem Streicheln die Besitzerin oder den Besitzer und lass dem Hund Raum.</p></div></article></div></div></section>
+    <section id="training"><div class="wrap"><div class="section-heading"><div class="eyebrow">Sozialisation &amp; Training</div><h2>Wichtig für ein gutes Zusammenleben</h2><p>Ein Dobermann braucht klare und liebevolle Begleitung. Training sollte Sicherheit, Vertrauen und Freude fördern.</p></div><div class="training-grid"><article class="training-item"><div class="icon">🌍</div><h3>Die Welt kennenlernen</h3><p>Neue Menschen, Orte und Alltagssituationen sollten ruhig und passend zum Hund erlebt werden.</p></article><article class="training-item"><div class="icon">🎯</div><h3>Klare Regeln</h3><p>Verständliche Signale und ein verlässlicher Tagesablauf helfen dem Hund, sich zu orientieren.</p></article><article class="training-item"><div class="icon">❤️</div><h3>Mit Geduld üben</h3><p>Lob und Belohnungen fördern Motivation. Trainingseinheiten kurz halten und Pausen einplanen.</p></article></div></div></section>
+    <section id="pflege"><div class="wrap"><div class="section-heading"><div class="eyebrow">Pflege &amp; Gesundheit</div><h2>Was ein Hund zum Wohlfühlen braucht</h2><p>Die erwachsenen Bezugspersonen sorgen dafür, dass der Hund dauerhaft gut versorgt wird.</p></div><div class="cards"><article class="card"><span class="tag">Gesundheit</span><h3>Tierärztliche Betreuung</h3><p>Vorsorge und tierärztliche Hilfe bei Krankheit oder Verletzungen sind wichtig.</p></article><article class="card"><span class="tag">Versorgung</span><h3>Futter und Wasser</h3><p>Der Futterbedarf hängt unter anderem von Alter, Gesundheit und Aktivität ab. Frisches Wasser sollte bereitstehen.</p></article><article class="card"><span class="tag">Wohlbefinden</span><h3>Fell und Ruheplatz</h3><p>Regelmäßige Pflege und ein bequemer, ruhiger Rückzugsort gehören zum Alltag.</p></article></div></div></section>
+    <section class="faq" id="faq"><div class="wrap"><div class="section-heading"><div class="eyebrow">Häufige Fragen</div><h2>Gut zu wissen</h2></div><div class="faq-list"><article class="faq-item"><h3>Ist ein Dobermann automatisch aggressiv?</h3><p>Nein. Verhalten hängt von vielen Faktoren ab, darunter Erfahrungen, Gesundheit, Erziehung und Situation. Jeder Hund sollte als Individuum behandelt werden.</p></article><article class="faq-item"><h3>Wie viel Bewegung braucht ein Dobermann?</h3><p>Dobermänner sind meist aktive Hunde. Bewegung und Beschäftigung müssen zum einzelnen Hund, seinem Alter und seiner Gesundheit passen.</p></article><article class="faq-item"><h3>Ist ein Dobermann für Familien geeignet?</h3><p>Das hängt von Hund und Familie ab. Zeit, Erfahrung, verlässliche Betreuung und respektvoller Umgang sind wichtig.</p></article><article class="faq-item"><h3>Was sollte man bei Begegnungen beachten?</h3><p>Frage die Halterin oder den Halter, bevor du dich näherst oder den Hund streichelst. Bedränge den Hund nicht und respektiere seine Signale.</p></article></div></div></section>
+    <section><div class="wrap"><aside class="tip"><div class="emoji">✨</div><div><h3>Körpersprache beachten</h3><p>Wenn ein Hund ausweicht, erstarrt oder angespannt wirkt, gib ihm Abstand. Bitte eine erwachsene Bezugsperson um Hilfe, wenn du unsicher bist.</p></div></aside></div></section>
+    <section class="responsibility" id="verantwortung"><div class="wrap"><div class="section-heading"><div class="eyebrow" style="color:#fff1d8">Ein Hund ist keine Kurzzeit-Entscheidung</div><h2>Verantwortung gehört dazu</h2><p>Ein Hund braucht viele Jahre lang Zeit, Betreuung und Fürsorge. Die Entscheidung für ein Haustier trifft die Familie gemeinsam.</p></div><div class="responsibility-grid"><article class="responsibility-card"><h3>🏡 Zeit und Planung</h3><p>Spaziergänge, Pflege, Betreuung und Tierarztbesuche müssen dauerhaft in den Alltag passen.</p></article><article class="responsibility-card"><h3>💛 Respekt und Fürsorge</h3><p>Ein Hund ist ein fühlendes Lebewesen. Seine Bedürfnisse und Grenzen müssen ernst genommen werden.</p></article></div></div></section>
   </main>
-
   <footer><div class="wrap footer-row"><span><strong>Wuff &amp; Wild</strong> · Alles über Dobermänner</span><span>Mit Respekt, Geduld und Verantwortung 🐾</span></div></footer>
 </body>
 </html>
